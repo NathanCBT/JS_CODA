@@ -213,6 +213,6 @@ for (let i = 0; i < eleves.length; i++) {
 let count_eleve_admis =0;
 let i = 0;
 while(i < eleves.length){
-     count_eleve_admis ++;
+    count_eleve_admis ++;
 }
 console.log(count_eleve_admis);
