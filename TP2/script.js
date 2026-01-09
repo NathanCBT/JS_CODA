@@ -251,7 +251,7 @@ for (let i=0; i<notes.length; i++){
     let indice_min = i;
 
     for (let j = i + 1; j < notes.length; j++) { 
-        if (notes[j] < min) { 
+        if (notes[j] < min) { // ">" range dans l'ordre décroissant
             min = notes[j]; 
             indice_min = j;
             echanges++;
