@@ -200,6 +200,7 @@ for (let i=0; i<notes.length; i++){
         if (notes[j] < min) { 
             min = notes[j]; 
             indice_min = j;
+            console.log("progression du tri ",notes);
             echanges++;
         }
         verification ++;
@@ -207,7 +208,7 @@ for (let i=0; i<notes.length; i++){
     let stock = notes[i];
     notes[i] = notes[indice_min];
     notes[indice_min] = stock;
-    console.log("progression du tri ",notes);
+    
 }
 
 console.log("le nombre d'échanges est de : ",echanges)
@@ -254,6 +255,7 @@ for (let i=0; i<notes.length; i++){
         if (notes[j] < min) { // ">" range dans l'ordre décroissant
             min = notes[j]; 
             indice_min = j;
+            console.log("progression du tri ",notes);
             echanges++;
         }
         verification ++;
@@ -261,7 +263,7 @@ for (let i=0; i<notes.length; i++){
     let stock = notes[i];
     notes[i] = notes[indice_min];
     notes[indice_min] = stock;
-    console.log("progression du tri ",notes);
+    
 }
 
 
