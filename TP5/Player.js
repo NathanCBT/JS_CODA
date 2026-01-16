@@ -73,6 +73,6 @@ class Player {
 const Albator = new Player("Albator", "img/character-spritsheet.png", { x: 50, y: 50 });
 Albator.isMoving = true;
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 20; i++) {
     Albator.Animate();
 }
