@@ -1,6 +1,11 @@
 const inputPseudo = document.getElementById("NamePlayer");
 const startBtn = document.getElementById("theme-btn");
 
+
+
+//lien backend 
+const inputServerUrl = document.getElementById("LienBackend");
+
 const skinSelector = document.getElementById("skin-selector");
 let selectedSkin = null;
 
@@ -36,31 +41,50 @@ for (let i = 1; i <= 29; i++) {
 
         // Ajouter la nouvelle sélection
         canvas.classList.add("skin-selected");
-        selectedSkin = i;
+        selectedSkin = `assets/${i}.png`;
         
         // Sauvegarder
-        localStorage.setItem("selectedSkin", i);
+        localStorage.setItem("selectedSkin", `assets/${i}.png`);
 
-        console.log("Skin sélectionné :", i);
+        console.log("Skin sélectionné :", `assets/${i}.png`);
     });
 }
 const skin = localStorage.getItem("selectedSkin");
 
 startBtn.addEventListener("click", () => {
     const pseudo = inputPseudo.value;
+    const Lienbck = inputServerUrl.value;
 
+    if (pseudo.trim() === "" && selectedSkin === null && Lienbck.trim() === "") {
+        showError("Veuillez entrer un pseudo, choisir un skin et entrer le lien backend");
+        return;
+    }
     if (pseudo.trim() === "" && selectedSkin === null) {
         showError("Veuillez entrer un pseudo et choisir un skin");
+        return;
+    }
+    if (selectedSkin === null && Lienbck.trim() === "") {
+        showError("Veuillez choisir un skin et entrer le lien backend");
+        return;
+    }
+    if (pseudo.trim() === "" && Lienbck.trim() === "") {
+        showError("Veuillez entrer un pseudo et le lien backend");
         return;
     }
     if (pseudo === "") {
         showError("Veuillez entrer un pseudo");
         return;
     }
+    if (Lienbck === "") {
+        showError("Veuillez entrer le lien backend");
+        return;
+    }
     if (selectedSkin === null) {
         showError("Veuillez choisir un skin"); 
         return;
     }
+    localStorage.setItem("pseudo", pseudo);
+    localStorage.setItem("Lienbackend", Lienbck);
     console.log("Pseudo :", pseudo);
     console.log("Skin :", selectedSkin);
 });
@@ -79,8 +103,4 @@ function showError(message) {
 closeError.addEventListener("click", () => {
     errorBox.style.display = "none";
 });
-
-
-//lien backend 
-const inputServerUrl = document.getElementById("LienBackend");
 
