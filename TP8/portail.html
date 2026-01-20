@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TP6 - PORTAIL</title>
+    <link rel="stylesheet" type="text/css" href="portail.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="pacman-bg">
+        <div class="pacman"></div>
+    </div>
+
+    <section id="page">
+        <div class="title">
+            <h1>PORTAIL</h1>
+        </div>
+
+        <div class="name">
+            <h2>SELECT YOUR NAME</h2>
+            <p>  
+                <input type="text" id="NamePlayer" name="NamePlayer" required />
+            </p>
+        </div>
+
+        <div class="LB">
+            <p>  
+                <input type="text" id="LienBackend" placeholder="Lien Backend" required />
+            </p>
+        </div>
+
+        <div class="name">
+            <h2>SELECT YOUR SKIN</h2>
+        </div>
+        
+        <div id="skin-selector"></div>
+
+        <div class="start-game">
+            <button id="theme-btn">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>START</span>
+            </button>
+        </div>
+
+        <div id="error-box">
+            <p id="error-message"></p>
+            <button id="close-error">OK</button>
+        </div>
+    </section>
+
+    <script src="portail.js"></script>
+</body>
+
+</html>
