@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*plateau pacman landscape*/
+
+
+.pacman-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: #000;
+
+    background-image:
+        /* murs horizontaux */
+        linear-gradient(#1e4cff 0 0),
+        linear-gradient(#1e4cff 0 0),
+        linear-gradient(#1e4cff 0 0),
+
+        /* murs verticaux */
+        linear-gradient(90deg, #1e4cff 0 0),
+        linear-gradient(90deg, #1e4cff 0 0),
+
+        /* pastilles */
+        radial-gradient(circle, #fff 2px, transparent 3px);
+
+    background-size:
+        70% 8px,
+        50% 8px,
+        60% 8px,
+
+        8px 50%,
+        8px 40%,
+
+        40px 40px;
+
+    background-position:
+        15% 20%,
+        20% 50%,
+        10% 80%,
+
+        20% 25%,
+        80% 30%,
+
+        0 0;
+
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+
+    filter: drop-shadow(0 0 6px #2f6bff);
+}
+
+/*PACMAN*/
+
+.pacman {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 60%;
+    left: -50px;
+
+    background:
+        conic-gradient(
+            from 60deg, /* 90 - 30 */
+            transparent 0deg 60deg,
+            gold 60deg 360deg
+        );
+
+    border-radius: 50%;
+
+    animation:
+        chomp 0.18s steps(2) infinite,
+        movePacman 12s linear infinite;
+}
+
+@keyframes chomp {
+    from {
+        background:
+            conic-gradient(
+                from 80deg, /* 90 - 10 */
+                transparent 0deg 20deg,
+                gold 20deg 360deg
+            );
+    }
+    to {
+        background:
+            conic-gradient(
+                from 55deg, /* 90 - 35 */
+                transparent 0deg 70deg,
+                gold 70deg 360deg
+            );
+    }
+}
+
+
+@keyframes movePacman {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(110vw);
+    }
+}
+
+
+
+
+
+
+#page {
+    text-align: center;
+    width: 450px;
+    height: 600px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px #2f6bff;
+}
+
+.title h1 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    color: #2f6bff;
+    text-shadow: 0 0 10px #2f6bff;
+}
+
+.title h2 {
+    margin-top: 5px;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    color: #aaa;
+}
+
+
+.name {
+    margin-top: 40px;
+}
+
+.name h2 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.name label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.name input {
+    width: 80%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #2f6bff;
+    border: 1px solid #2f6bff;
+    transition: 0.3s;
+}
+
+.name input:focus {
+    border-color: #2f6bff;
+    box-shadow: 0 0 10px #2f6bff;
+}
+
+
+.LB {
+    margin-top: 40px;
+}
+
+.LB label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.LB input {
+    width: 80%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #2f6bff;
+    border: 1px solid #2f6bff;
+    transition: 0.3s;
+}
+
+#LienBackend::placeholder {
+    text-align: center;
+}
+
+.LB input:focus {
+    border-color: #2f6bff;
+    box-shadow: 0 0 10px #2f6bff;
+}
+
+
+
+.start-game {
+    margin-top: 40px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#theme-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    background: linear-gradient(90deg, #2f6bff, #00aaff);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    color: #000;
+    transition: 0.25s;
+    box-shadow: 0 0 15px rgba(0, 213, 255, 0.4);
+}
+
+#theme-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #2f6bff;
+}
+
+#theme-btn i {
+    font-size: 1.4rem;
+}
+
+
+
+/*partie selecteur du skin*/
+#skin-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    overflow-y: auto;
+    height: 125px;
+}
+#skin-selector::-webkit-scrollbar {
+    width: 6px;
+}
+#skin-selector::-webkit-scrollbar-thumb {
+    background-color: #2f6bff;
+}
+.skin-canvas {
+    width: 64px;
+    height: 64px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.skin-canvas:hover {
+    transform: scale(1.1);
+}
+
+.skin-selected {
+    border-color: #2f6bff;
+    box-shadow: 0 0 10px #2f6bff;
+}
+
+
+/*box erreurs*/
+
+#error-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    padding: 20px;
+    background: #111;
+    border: 3px solid gold;
+    border-radius: 10px;
+    color: white;
+    font-family: "Press Start 2P", sans-serif;
+    text-align: center;
+    display: none; 
+    z-index: 9999;
+}
+
+#error-box p {
+    line-height: 1.6;
+}
+
+#error-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: gold;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+#error-box button:hover {
+    background: gold;
+}
