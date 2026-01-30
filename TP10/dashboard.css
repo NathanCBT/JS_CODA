@@ -1,0 +1,15 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+input,
+button {
+  padding: 6px;
+  margin: 5px 0;
+}
+.error {
+  color: red;
+}
+.player {
+  margin: 5px 0;
+}

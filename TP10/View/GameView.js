@@ -13,9 +13,14 @@ export default class GameView {
     //Stocker une référence vers l’instance de Game
     this.Game = Game;
     //partie 3
-    this.spritePath = localStorage.getItem("selectedSkin");
-    this.sprite = new Image();
-    this.sprite.src = this.spritePath;
+    //PART 3
+    this.spritePath = localStorage.getItem("skin");
+    this.sprites = {};
+    for (let i = 1; i < 30; i++) {
+      let skinPath = `assets/${i}.png`;
+      this.sprites[skinPath] = new Image();
+      this.sprites[skinPath].src = skinPath;
+    }
   }
 
   //partie 2
@@ -42,6 +47,7 @@ export default class GameView {
   drawPlayer(player) {
     let x = player.finalX * this.canvas.width;
     let y = player.finalY * this.canvas.height;
+    const sprite = this.sprites[player.skinPath];
 
     let size = 64;
     let midX = (player.framewidth - 64) / 2;
@@ -82,7 +88,7 @@ export default class GameView {
     }
 
     this.ctx.drawImage(
-      this.sprite,
+      sprite,
       colonne * size, // colonne
       ligne_sprite, //recupere la 10eme image tous les 64 pixels
       size, // sourceWidth
